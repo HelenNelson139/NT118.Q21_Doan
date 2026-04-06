@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top|center_horizontal"
+    android:background="@color/background_main"
+    android:paddingTop="60dp">
+    <!-- Logo -->
+    <!-- Button Đăng ký -->
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="379dp"
+        android:layout_height="254dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Learning course"
+        android:textAlignment="center"
+        android:textColor="@color/text_title"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="Đăng ký"
+        android:textSize="20sp"
+        android:textColor="@color/button_text"
+        android:backgroundTint="@color/button_background"
+        android:layout_marginBottom="15dp"/>
+    <!-- Button Đăng nhập -->
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="Đăng nhập"
+        android:textSize="20sp"
+        android:textColor="@color/button_text"
+        android:backgroundTint="@color/button_background"
+        android:layout_marginBottom="20dp"/>
+    <!-- Quên mật khẩu -->
+    <TextView
+        android:id="@+id/textForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quên mật khẩu"
+        android:textColor="@color/text_forgot_password"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+</LinearLayout>
