@@ -5,4 +5,20 @@
     <color name="button_text">#1f4884</color>
     <color name="text_forgot_password">#b7d9ff</color>
     <color name="text_title">#d6e3f3</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_white">#F9F7F7</color>
+    <color name="light_blue">#9CD5FF</color>
+    <color name="blue_grey">#DBE2Ef</color>
+    <color name="blue">#3F72AF</color>
+    <color name="dark_blue">#112D4E</color>
+    <color name="green">#08CB00</color>
+    <color name="grey">#CCCCCC</color>
+    <color name="light_green">#CBF3BB</color>
+    <color name="bright_blue">#1E88E5</color>
+    <color name="dark_green">#008000</color>
+    <color name="light_blue_soft">#669CD5FF</color>
+    <color name="dark_grey">#666666</color>
+    <color name="text_title">#d6e3f3</color>
 </resources>
