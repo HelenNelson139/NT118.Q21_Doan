@@ -41,5 +41,18 @@
         <item>Nữ</item>
         <item>Khác</item>
     </string-array>
+    <string name="app_name">My Application</string>
+    <string name="course_name">Phân tích dữ liệu với Python và Machine Learning</string>
+    <string name="description_course_label">Mô tả khóa học</string>
+    <string name="what_you_learn_label">Bạn sẽ học được gì?</string>
+    <string name="skill_learned">Kĩ năng bạn sẽ học được</string>
+    <string name="join_course">THAM GIA</string>
+
+    <string name="aim">Mục tiêu</string>
+    <string name="content">Nội dung</string>
+    <string name="example">Ví dụ Python</string>
+    <string name="btn_back">← Back</string>
+    <string name="btn_next">Next →</string>
+    <string name="title">Learning course</string>
 
 </resources>

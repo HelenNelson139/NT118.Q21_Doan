@@ -14,4 +14,11 @@
     <color name="dark_blue">#112D4E</color>
     <color name="green">#08CB00</color>
     <color name="grey">#CCCCCC</color>
+
+    <color name="light_green">#CBF3BB</color>
+    <color name="bright_blue">#1E88E5</color>
+    <color name="dark_green">#008000</color>
+    <color name="light_blue_soft">#669CD5FF</color>
+    <color name="dark_grey">#666666</color>
+    <color name="text_title">#d6e3f3</color>
 </resources>
