@@ -2,23 +2,22 @@ package entity;
 
 import java.security.Timestamp;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class User {
-    private String username;
-    private String phone;
-    private String email;
-    private String password;
-    private String full_name;
-    private String role;
-    private String status;
-    private String avatar_url;
-    private Timestamp created_at;
+     String username;
+     String phone;
+     String email;
+     String password;
+     String full_name;
+     String role;
+     String status;
+     String avatar_url;
+     Timestamp created_at;
 }

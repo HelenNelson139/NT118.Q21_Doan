@@ -1,15 +1,14 @@
 package entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Teacher {
-    private Integer user_id;
-    private String teacher_code;
-    private String department;
+     Integer user_id;
+     String teacher_code;
+     String department;
 }

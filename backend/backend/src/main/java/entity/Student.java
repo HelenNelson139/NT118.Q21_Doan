@@ -1,17 +1,16 @@
 package entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Student {
-    private Integer user_id;
-    private String student_code;
-    private Date date_of_birth;
+     Integer user_id;
+     String student_code;
+     Date date_of_birth;
 }
