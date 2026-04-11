@@ -2,7 +2,8 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone VARCHAR(12),
     full_name VARCHAR(255),
     role ENUM('admin', 'teacher', 'student') DEFAULT 'student',
     status ENUM('active', 'banned', 'deleted') DEFAULT 'active',
@@ -29,7 +30,6 @@ CREATE TABLE teachers (
 CREATE TABLE admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT UNIQUE,
-    phone VARCHAR(20),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
