@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Learning App</string>
+
+    <string name="title_learning_course">Learning course</string>
+    <string name="list_title_courses">Danh sách khóa học</string>
+
+    <string name="hint_search_courses">Tìm kiếm khóa học...</string>
+
+    <string name="desc_menu">Mở menu điều hướng</string>
+    <string name="desc_logo">Logo ứng dụng</string>
+    <string name="desc_menu_icon">Icon Menu</string>
+    <string name="desc_book_icon">Icon Book</string>
+
+    <string name="demo_course_description">Bài học: 48 bài\nMô tả khóa học: C++ cho người mới bắt đầu - Nền tảng lập trình vững chắc.</string>
+</resources>

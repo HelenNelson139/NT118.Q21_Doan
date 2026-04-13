@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_main">#1f4884</color>
+    <color name="button_background">#78b3e7</color>
+    <color name="button_text">#1f4884</color>
+    <color name="text_forgot_password">#b7d9ff</color>
+    <color name="text_title">#d6e3f3</color>
+</resources>
