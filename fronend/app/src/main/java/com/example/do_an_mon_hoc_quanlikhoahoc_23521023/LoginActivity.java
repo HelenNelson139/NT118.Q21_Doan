@@ -19,6 +19,18 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editEmail, editPassword;
     private Button buttonLogin;
 
+    // Tài khoản admin cố định để test khi chưa có backend
+    private static final String ADMIN_EMAIL = "admin@gmail.com";
+    private static final String ADMIN_PASSWORD = "123456789";
+
+    // Tài khoản student cố định để test khi chưa có backend
+    private static final String STUDENT_EMAIL = "student@gmail.com";
+    private static final String STUDENT_PASSWORD = "123456789";
+
+    // Tài khoản teacher cố định để test khi chưa có backend
+    private static final String TEACHER_EMAIL = "teacher@gmail.com";
+    private static final String TEACHER_PASSWORD = "123456789";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,43 +58,70 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // 3. TẠM THỜI xử lý local để test app khi CHƯA có backend
-        // cho tài khoản tạm thời
-        String demoEmail = "student@gmail.com";
-        String demoPassword = "123456789";
+        // TÀI KHOẢN ADMIN CỐ ĐỊNH
+        // Nếu nhập đúng admin thì mở AdminHomeActivity
+        if (email.equals(ADMIN_EMAIL) && password.equals(ADMIN_PASSWORD)) {
+            Toast.makeText(this, "Đăng nhập admin thành công", Toast.LENGTH_SHORT).show();
 
-        if (email.equals(demoEmail) && password.equals(demoPassword)) {
+            Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
+        // TÀI KHOẢN TEACHER CỐ ĐỊNH
+        // Nếu nhập đúng teacher thì mở TeacherHome
+        if (email.equals(TEACHER_EMAIL) && password.equals(TEACHER_PASSWORD)) {
+            Toast.makeText(this, "Đăng nhập giảng viên thành công", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(LoginActivity.this, TeacherHome.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
+        // TÀI KHOẢN STUDENT CỐ ĐỊNH
+        // Nếu nhập đúng student thì mở HomeActivity
+        if (email.equals(STUDENT_EMAIL) && password.equals(STUDENT_PASSWORD)) {
             Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-            // Chuyển sang HomeActivity
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
-        } else {
-            Toast.makeText(this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        Toast.makeText(this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
 
         // sendLoginRequest(email, password);
     }
 
     /*
     BACKEND / CSDL
-    private void sendRegisterRequest(String name, String email, String password) {
+    private void sendLoginRequest(String email, String password) {
 
-        String url = "http://your-api/register";
+        String url = "http://your-api/login";
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 response -> {
                     String result = response.trim();
 
-                    if (result.equalsIgnoreCase("success")) {
-                        Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    if (result.equalsIgnoreCase("admin")) {
+                        Toast.makeText(this, "Đăng nhập admin thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                         startActivity(intent);
                         finish();
-                    } else if (result.equalsIgnoreCase("exists")) {
-                        Toast.makeText(this, "Email đã tồn tại", Toast.LENGTH_SHORT).show();
+                    } else if (result.equalsIgnoreCase("teacher")) {
+                        Toast.makeText(this, "Đăng nhập giảng viên thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, TeacherHome.class);
+                        startActivity(intent);
+                        finish();
+                    } else if (result.equalsIgnoreCase("student")) {
+                        Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
-                        Toast.makeText(this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
@@ -90,14 +129,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
         ) {
             @Override
-            protected java.util.Map<String, String> getParams() {
-                java.util.Map<String, String> params = new java.util.HashMap<>();
-                params.put("name", name);
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("email", email);
                 params.put("password", password);
                 return params;
             }
         };
+
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
     }

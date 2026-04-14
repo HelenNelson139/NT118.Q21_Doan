@@ -38,6 +38,18 @@
         <activity android:name=".EditProfileActivity" android:exported="false" />
         <activity android:name=".CourseListActivity" android:exported="false"/>
         <activity android:name=".mycourseactivity" android:exported="false"/>
+
+        <activity android:name=".AdminHomeActivity" android:exported="false" />
+        <activity android:name=".AdminUserDetailActivity" android:exported="false" />
+        <activity android:name=".AdminManageCourse" android:exported="false"/>
+        <activity android:name=".AdminCourseDetailActivity" android:exported="false"/>
+        <activity android:name=".AdminManageUser" android:exported="false" />
+        <activity android:name=".AdminProfile" android:exported="false"/>
+
+        <activity android:name=".TeacherHome" android:exported="false" />
+        <activity android:name=".TeacherClass" android:exported="false"/>
+        <activity android:name=".TeacherProfileActivity" android:exported="false"/>
+        <activity android:name=".TeacherEditProfileActivity" android:exported="false"/>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/RoundedCornerImage" />
 
+
         <TextView
             android:id="@+id/txtCourseDescription"
             android:layout_width="0dp"

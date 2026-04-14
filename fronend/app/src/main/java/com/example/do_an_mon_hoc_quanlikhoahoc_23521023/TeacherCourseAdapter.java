@@ -1,0 +1,88 @@
+package com.example.do_an_mon_hoc_quanlikhoahoc_23521023;
+
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.button.MaterialButton;
+
+import java.util.List;
+
+public class TeacherCourseAdapter extends RecyclerView.Adapter<TeacherCourseAdapter.CourseViewHolder> {
+
+    public interface OnCourseActionListener {
+        void onEditClick(int position);
+        void onDeleteClick(int position);
+    }
+
+    private final List<TeacherCourse> courseList;
+    private final OnCourseActionListener listener;
+
+    public TeacherCourseAdapter(List<TeacherCourse> courseList, OnCourseActionListener listener) {
+        this.courseList = courseList;
+        this.listener = listener;
+    }
+
+    @NonNull
+    @Override
+    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_teacher_course_list, parent, false);
+        return new CourseViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+        TeacherCourse course = courseList.get(position);
+
+        holder.imgCourse.setImageResource(course.getImageResource());
+        holder.tvTitle.setText(course.getTitle());
+        holder.tvDescription.setText("Mô tả: " + course.getDescription());
+        holder.tvTeacherName.setText("Giảng viên: " + course.getTeacher());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), CourseActivity.class);
+            intent.putExtra("course_name", course.getTitle());
+            v.getContext().startActivity(intent);
+        });
+
+        holder.btnEditCourse.setOnClickListener(v -> {
+            if (listener != null && holder.getAdapterPosition() != RecyclerView.NO_POSITION) {
+                listener.onEditClick(holder.getAdapterPosition());
+            }
+        });
+
+        holder.btnDeleteCourse.setOnClickListener(v -> {
+            if (listener != null && holder.getAdapterPosition() != RecyclerView.NO_POSITION) {
+                listener.onDeleteClick(holder.getAdapterPosition());
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return courseList.size();
+    }
+
+    static class CourseViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgCourse;
+        TextView tvTitle, tvDescription, tvTeacherName;
+        MaterialButton btnEditCourse, btnDeleteCourse;
+
+        public CourseViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgCourse = itemView.findViewById(R.id.imgCourseThumbnail);
+            tvTitle = itemView.findViewById(R.id.txtCourseTitle);
+            tvDescription = itemView.findViewById(R.id.txtCourseDescription);
+            tvTeacherName = itemView.findViewById(R.id.txtTeacherName);
+            btnEditCourse = itemView.findViewById(R.id.btnEditCourse);
+            btnDeleteCourse = itemView.findViewById(R.id.btnDeleteCourse);
+        }
+    }
+}

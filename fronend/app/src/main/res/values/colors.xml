@@ -20,4 +20,9 @@
     <color name="dark_green">#008000</color>
     <color name="light_blue_soft">#669CD5FF</color>
     <color name="dark_grey">#666666</color>
+    <color name="steel_blue">#2A528A</color>
+    <color name="blue_sky">#567EBB</color>
+    <color name="ivory">#F9F7F7</color>
+    <color name="blue_charcoal">#88112D4E</color>
+    <color name="soft_blue">#7895CB</color>
 </resources>

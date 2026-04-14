@@ -5,29 +5,33 @@
     android:layout_width="280dp"
     android:layout_height="match_parent"
     android:layout_gravity="end"
+
+    android:clickable="true"
+    android:focusable="true"
+    android:descendantFocusability="blocksDescendants"
+
     app:cardBackgroundColor="#5689C0"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="0dp"
-    app:strokeWidth="0dp">
+    app:cardElevation="8dp"
+    app:strokeWidth="0dp"
+    app:shapeAppearanceOverlay="@style/SidebarRightShape">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:clickable="true"
+        android:focusable="true">
 
-        <!--  Logo menu  -->
+        <!-- CLOSE BUTTON -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnCloseMenu"
             android:layout_width="55dp"
             android:layout_height="50dp"
+            android:contentDescription="Đóng menu"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Đóng menu"
             app:cardBackgroundColor="#2A528A"
             app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:strokeColor="#567EBB"
-            app:strokeWidth="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -35,21 +39,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:scaleType="fitCenter"
                 android:src="@drawable/ic_menu"
                 app:tint="#F9F7F7" />
-
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Searching tool -->
+        <!-- SEARCH -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="22dp"
-            app:cardElevation="0dp"
             app:layout_constraintTop_toBottomOf="@id/btnCloseMenu">
 
             <LinearLayout
@@ -57,15 +58,12 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp">
+                android:paddingHorizontal="15dp">
 
                 <ImageView
-                    android:id="@+id/imgSearchIcon"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_search"
-                    android:scaleType="fitCenter"
                     app:tint="#888888" />
 
                 <EditText
@@ -76,17 +74,12 @@
                     android:layout_marginStart="10dp"
                     android:background="@android:color/transparent"
                     android:hint="Tìm kiếm..."
-                    android:inputType="text"
                     android:textColor="#112D4E"
-                    android:textColorHint="#888888"
-                    android:textSize="14sp"
-                    android:padding="0dp" />
-
+                    android:textColorHint="#888888" />
             </LinearLayout>
-
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Others view -->
+        <!-- USER -->
         <TextView
             android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
@@ -96,87 +89,129 @@
             android:textColor="#FFD700"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchContainer" />
+            app:layout_constraintTop_toBottomOf="@id/searchContainer"
+            app:layout_constraintStart_toStartOf="parent"/>
 
+        <!-- MENU -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/tvUserName">
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/tvUserName"
+            android:clickable="true"
+            android:focusable="true">
 
+            <!-- HOME -->
+            <LinearLayout
+                android:id="@+id/menuHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="#FFFFFF"/>
+
+                <TextView
+                    android:layout_marginStart="15dp"
+                    android:text="Trang chủ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- COURSES -->
             <LinearLayout
                 android:id="@+id/menuCourses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="15dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingVertical="15dp">
+                android:background="?attr/selectableItemBackground">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_book"
-                    app:tint="#FFFFFF" />
+                    app:tint="#FFFFFF"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:text="Khóa học"
+                    android:text="Quản lý khóa học"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- USERS -->
             <LinearLayout
-                android:id="@+id/menuLearning"
+                android:id="@+id/menuUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="15dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingVertical="15dp">
+                android:background="?attr/selectableItemBackground">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_study"
-                    app:tint="#FFFFFF" />
+                    android:src="@drawable/ic_user_manage"
+                    app:tint="#FFFFFF"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:text="Học tập"
+                    android:text="Quản lý người dùng"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- PROFILE -->
             <LinearLayout
                 android:id="@+id/menuProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="15dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingVertical="15dp">
+                android:background="?attr/selectableItemBackground">
+
                 <ImageView
-                    android:id="@+id/imgProfileIcon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_profile"
-                    app:tint="#FFFFFF" />
+                    app:tint="#FFFFFF"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:text="Hồ sơ của tôi"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <TextView
@@ -197,4 +232,5 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </com.google.android.material.card.MaterialCardView>

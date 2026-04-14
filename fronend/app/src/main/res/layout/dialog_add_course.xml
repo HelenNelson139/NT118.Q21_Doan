@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course_named"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"
+            android:layout_marginBottom="4dp" />
+
+        <EditText
+            android:id="@+id/edtCourseTitle"
+            android:hint="@string/course_named"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/bright_blue"
+            app:tabSelectedTextColor="@color/bright_blue"
+            app:tabTextColor="@color/black"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:id="@+id/containerIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/description_course_label"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_blue"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/edtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="@string/description_course_label" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/what_you_learn_label"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_blue"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/edtWhatYouLearn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="@string/what_you_learn_label" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/skill_learned"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_blue"
+                android:layout_marginBottom="4dp" />
+
+            <EditText
+                android:id="@+id/edtSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="@string/skill_learned" />
+
+            <ImageView
+                android:id="@+id/imgCourseCover"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/course_cover_image"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_camera" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUploadImage"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="@string/upload_course_cover"
+                android:textSize="16dp"
+                android:textColor="@color/bright_blue"
+                app:cornerRadius="12dp"
+                app:strokeColor="@color/bright_blue"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/containerCurriculum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/lessonContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddLesson"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/btn_add_lesson"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/light_blue"
+                android:textColor="@color/bright_blue"
+                android:textSize="16dp"
+                app:cornerRadius="12dp"
+                app:strokeColor="@color/bright_blue"
+                app:strokeWidth="2dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/btn_cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                app:strokeColor="@color/black"
+                android:textSize="16dp"
+                app:strokeWidth="2dp"
+                app:cornerRadius="12dp"
+                android:backgroundTint="@color/grey"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveCourse"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/btn_add_course"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                app:cornerRadius="12dp"
+                android:textSize="16dp"
+                android:backgroundTint="@color/light_green"
+                app:strokeColor="@color/green"
+                app:strokeWidth="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

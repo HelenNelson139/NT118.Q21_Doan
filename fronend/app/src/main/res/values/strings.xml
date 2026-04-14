@@ -69,4 +69,20 @@
     <string name="desc_logo">Logo ứng dụng</string>
     <string name="desc_menu_icon">Icon Menu</string>
     <string name="desc_book_icon">Icon Book</string>
+    <string name="demo_course_description">Bài học: 48 bài\nMô tả khóa học: C++ cho người mới bắt đầu - Nền tảng lập trình vững chắc.</string>
+
+    <string name="course_named">Tên khóa học</string>
+    <string name="list_lessons">Danh sách bài học</string>
+    <string name="btn_add_course">Thêm</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="upload_course_cover">Tải ảnh bìa</string>
+    <string name="course_cover_image">Ảnh bìa</string>
+
+    <string name="btn_add_lesson">Thêm bài học</string>
+    <string name="lesson_title">Lesson title</string>
+    <string name="upload_img">Tải ảnh</string>
+    <string name="open_menu">Mở menu điều hướng</string>
+    <string name="search_course">Tìm kiếm lớp học...</string>
+    <string name="list_courses">Danh sách lớp học</string>
+    <string name="btn_course">+ Thêm khóa học</string>
 </resources>

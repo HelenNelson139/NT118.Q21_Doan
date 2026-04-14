@@ -90,68 +90,49 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Hàm khởi tạo và hiển thị Overlay Sidebar (Lớp phủ Menu)
-     */
     private void showSidebarMenu() {
-        // Tạo một Dialog mới
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        // Gán layout menu sidebar mà chúng ta đã xây dựng
         dialog.setContentView(R.layout.layout_sidebar);
 
-        // Cấu hình cửa sổ (Window) để Dialog trượt từ bên phải và có nền trong suốt
         Window window = dialog.getWindow();
         if (window != null) {
-            // Chiều rộng 280dp (theo layout), chiều cao chiếm toàn bộ màn hình
             window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-
-            // Xóa nền mặc định của Dialog để lộ phần bo góc (radius) của CardView
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-            // Đẩy Menu sang phía bên phải màn hình (đúng chất Sidebar)
             window.setGravity(Gravity.END);
         }
 
-        // 4. Ánh xạ các thành phần BÊN TRONG Sidebar (phải dùng dialog.findViewById)
         MaterialCardView btnCloseMenu = dialog.findViewById(R.id.btnCloseMenu);
         LinearLayout menuProfile = dialog.findViewById(R.id.menuProfile);
         LinearLayout menuCourses = dialog.findViewById(R.id.menuCourses);
         LinearLayout menuMyCourses = dialog.findViewById(R.id.menuLearning);
+        TextView txtLogout = dialog.findViewById(R.id.txtLogout);
 
-        // Đóng Menu khi nhấn nút X hoặc Icon Menu bên trong
         btnCloseMenu.setOnClickListener(v -> dialog.dismiss());
 
-        // Xử lý sự kiện khi nhấn vào các mục menu
         menuProfile.setOnClickListener(v -> {
-            Toast.makeText(this, "Đang mở Hồ sơ cá nhân", Toast.LENGTH_SHORT).show();
-            dialog.dismiss(); // Đóng menu sau khi click
+            startActivity(new Intent(this, ProfileActivity.class));
+            dialog.dismiss();
         });
 
         menuCourses.setOnClickListener(v -> {
-            Toast.makeText(this, "Đang chuyển sang danh sách Khóa học", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, CourseListActivity.class));
             dialog.dismiss();
         });
 
-        // Hồ sơ
-        menuProfile.setOnClickListener(v -> {
-            startActivity(new Intent(this, ProfileActivity.class)); // thêm
-            dialog.dismiss();
-        });
-
-        // Khóa học
-        menuCourses.setOnClickListener(v -> {
-            startActivity(new Intent(this, CourseListActivity.class)); // sửa chỗ này
-            dialog.dismiss();
-        });
-
-        // Học tập
         menuMyCourses.setOnClickListener(v -> {
-            startActivity(new Intent(this,mycourseactivity.class)); // thêm
+            startActivity(new Intent(this, mycourseactivity.class));
             dialog.dismiss();
         });
-        // Cuối cùng là hiển thị Dialog lên màn hình
+
+        txtLogout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            dialog.dismiss();
+            finish();
+        });
+
         dialog.show();
     }
 

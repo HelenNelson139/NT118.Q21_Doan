@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:padding="24dp">
 
-        <!--  Logo menu  -->
+        <!-- Nút đóng menu -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnCloseMenu"
             android:layout_width="55dp"
@@ -38,15 +38,15 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_menu"
                 app:tint="#F9F7F7" />
-
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Searching tool -->
+        <!-- SEARCH (giữ layout nhưng ẩn) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="30dp"
+            android:visibility="gone"
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="22dp"
             app:cardElevation="0dp"
@@ -54,51 +54,23 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp">
-
-                <ImageView
-                    android:id="@+id/imgSearchIcon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_search"
-                    android:scaleType="fitCenter"
-                    app:tint="#888888" />
-
-                <EditText
-                    android:id="@+id/etSearchMenu"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:background="@android:color/transparent"
-                    android:hint="Tìm kiếm..."
-                    android:inputType="text"
-                    android:textColor="#112D4E"
-                    android:textColorHint="#888888"
-                    android:textSize="14sp"
-                    android:padding="0dp" />
-
-            </LinearLayout>
-
+                android:layout_height="match_parent"/>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Others view -->
+        <!-- Tên người dùng -->
         <TextView
             android:id="@+id/tvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="User name"
+            android:text="Giảng viên"
             android:textColor="#FFD700"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/searchContainer" />
 
+        <!-- MENU -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,8 +78,9 @@
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/tvUserName">
 
+            <!-- Lớp học của tôi -->
             <LinearLayout
-                android:id="@+id/menuCourses"
+                android:id="@+id/menuMyClasses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -115,45 +88,24 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:paddingVertical="15dp">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_book"
                     app:tint="#FFFFFF" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:text="Khóa học"
+                    android:text="Lớp học của tôi"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/menuLearning"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:paddingVertical="15dp">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_study"
-                    app:tint="#FFFFFF" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:text="Học tập"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
+            <!-- Hồ sơ -->
             <LinearLayout
                 android:id="@+id/menuProfile"
                 android:layout_width="match_parent"
@@ -163,12 +115,14 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:paddingVertical="15dp">
+
                 <ImageView
                     android:id="@+id/imgProfileIcon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_profile"
                     app:tint="#FFFFFF" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

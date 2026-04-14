@@ -48,7 +48,7 @@
                 android:background="@drawable/bg_profile_avatar"
                 android:elevation="10dp"
                 android:padding="6dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_profile" />
 
             <TextView
                 android:id="@+id/txtName"

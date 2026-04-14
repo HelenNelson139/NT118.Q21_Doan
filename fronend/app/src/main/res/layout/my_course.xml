@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3F72AF"
-    tools:context=".mycourseactivity">
+    tools:context=".MyCourseActivity">
 
-    <!-- Menu Bar (hamberger bar) -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnMenuCard"
         android:layout_width="55dp"
@@ -34,7 +33,6 @@
             android:src="@drawable/ic_menu"
             android:contentDescription="Icon Menu"
             app:tint="#F9F7F7" />
-
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
@@ -105,6 +103,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardLearningCourse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
@@ -153,15 +152,6 @@
                                     android:text="Tiến độ:"
                                     android:textColor="#F9F7F7"
                                     android:textSize="13sp" />
-
-                               <!-- <ProgressBar
-                                    style="@android:style/Widget.ProgressBar.Horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="8dp"
-                                    android:layout_marginTop="4dp"
-                                    android:max="100"
-                                    android:progress="60"
-                                    android:progressDrawable="@drawable/custom_progress_red" /> -->
                             </LinearLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -186,8 +176,11 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompletedCourse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:cardBackgroundColor="#3F72AF"
                         app:cardCornerRadius="20dp">
 
