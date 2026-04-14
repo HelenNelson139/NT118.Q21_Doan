@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Do_an_mon_hoc_quanlikhoahoc_23521023"
 include(":app")
- 
