@@ -1,9 +1,7 @@
-package entity;
+package com.example.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.util.Date;
 
 @Data
 @Builder
@@ -11,15 +9,15 @@ import java.util.Date;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "teachers")
+public class Teacher {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     Integer id;
+     String id;
      @OneToOne
      @MapsId
      @JoinColumn(name = "user_id")
      private User user;
-     String student_code;
-     Date date_of_birth;
+     String teacher_code;
+     String department;
 }

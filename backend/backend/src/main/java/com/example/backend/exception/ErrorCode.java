@@ -1,4 +1,4 @@
-package exception;
+package com.example.backend.exception;
 
 import lombok.*;
 

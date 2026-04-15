@@ -1,4 +1,4 @@
-package exception;
+package com.example.backend.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

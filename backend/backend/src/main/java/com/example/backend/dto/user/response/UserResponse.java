@@ -1,4 +1,4 @@
-package dto.user.response;
+package com.example.backend.dto.user.response;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

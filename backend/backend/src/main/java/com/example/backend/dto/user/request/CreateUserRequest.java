@@ -1,4 +1,4 @@
-package dto.user.request;
+package com.example.backend.dto.user.request;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -20,5 +21,4 @@ public class CreateUserRequest {
     String role;
     String status;
     String avatar_url;
-    Timestamp created_at;
 }
