@@ -15,11 +15,11 @@ import java.util.Date;
 public class Student {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     String id;
+     Integer id;
      @OneToOne
      @MapsId
      @JoinColumn(name = "user_id")
-     private User user;
+     User user;
      String student_code;
      Date date_of_birth;
 }

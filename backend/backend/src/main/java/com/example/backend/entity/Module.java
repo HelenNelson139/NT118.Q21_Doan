@@ -1,21 +1,27 @@
 package com.example.backend.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.relational.core.sql.In;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-@Table(name = "admins")
+@Builder
+@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Admin {
+public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    User user;
+    @ManyToOne
+    @MapsId
+    @JoinColumn(name = "lesson_id")
+    Lesson lesson;
+    String title;
+    String objective;
+    String content;
+    String example;
+    String image_example_url;
+    Integer order_index;
 }

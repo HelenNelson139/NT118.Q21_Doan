@@ -1,13 +1,11 @@
 package com.example.backend.respository;
 
-import com.example.backend.entity.User;
-import jakarta.persistence.Id;
+import com.example.backend.entity.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @EnableJpaAuditing
-public interface UserResponsitory extends JpaRepository<User, Integer> {
-    public User findByUsername(String username);
+public interface TeacherResponsitory extends JpaRepository<Teacher, Integer> {
 }

@@ -3,6 +3,7 @@ package com.example.backend.entity;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+import com.example.backend.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -19,14 +20,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class User {
      @Id
-     @GeneratedValue(strategy = GenerationType.UUID)
-     String id;
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     Integer id;
      String username;
      String phone;
      String email;
      String password;
      String full_name;
-     String role;
+     Role role;
      String status;
      String avatar_url;
      @CreatedDate

@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "created_at", ignore = true)
     @Mapping(target = "password", ignore = true)
-    User toCrete(CreateUserRequest createUserRequest);
+    User toCreate(CreateUserRequest createUserRequest);
 }

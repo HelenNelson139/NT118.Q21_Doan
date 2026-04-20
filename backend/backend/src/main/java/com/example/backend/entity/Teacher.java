@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.net.Inet4Address;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -13,11 +15,11 @@ import lombok.experimental.FieldDefaults;
 public class Teacher {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     String id;
+     Integer id;
      @OneToOne
      @MapsId
      @JoinColumn(name = "user_id")
-     private User user;
+     User user;
      String teacher_code;
      String department;
 }
