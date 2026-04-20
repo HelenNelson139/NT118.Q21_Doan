@@ -1,4 +1,4 @@
-package com.example.backend.dto.user.teacher.request;
+package com.example.backend.dto.teacher.request;
 
 import com.example.backend.dto.user.request.CreateUserRequest;
 import lombok.AccessLevel;

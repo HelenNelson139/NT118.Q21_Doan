@@ -27,11 +27,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-//                .httpBasic(AbstractHttpConfigurer::disable)
-//                .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(requests ->
                 requests
-                       .requestMatchers(HttpMethod.POST, "/api/users" ).permitAll());
+                       .requestMatchers(HttpMethod.POST, "/api/teachers/register" ).permitAll()
+                        .anyRequest().authenticated());
         System.out.println("Security Config Loaded!");
         return httpSecurity.build();
     }
