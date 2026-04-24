@@ -10,7 +10,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+jwt:
+  sigerKey: "5f7aa140ecd9f3a9ad700c6b6ef2549395b9dc68eee93c5d64789a2b217c7706"
 server:
   port: 8080
   servlet:
     context-path: /NT118
+
+

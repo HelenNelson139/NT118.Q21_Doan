@@ -2,10 +2,13 @@ package com.example.backend.exception;
 
 import lombok.*;
 
-@Data
 @AllArgsConstructor
-public class ErrorCode {
-//    USER_CREATED_ERROR(1003, "Missing infor or error"),
-    private String message;
+@NoArgsConstructor
+public enum ErrorCode {
+    USER_NOT_FOUND(1001, "User Not Found"),
+    UN_AUTHENTICATED(1002, "Cannot Authenticate");
+
     private int code;
+    private String message;
+
 }
