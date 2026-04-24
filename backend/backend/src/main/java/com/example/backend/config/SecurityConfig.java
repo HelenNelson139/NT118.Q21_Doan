@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests ->
                 requests
                        .requestMatchers(HttpMethod.POST, "/api/teachers/register" ).permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/students/register" ).permitAll()
                         .anyRequest().authenticated());
         System.out.println("Security Config Loaded!");
         return httpSecurity.build();

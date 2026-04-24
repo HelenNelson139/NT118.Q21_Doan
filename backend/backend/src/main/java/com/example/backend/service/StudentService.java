@@ -1,12 +1,12 @@
 package com.example.backend.service;
 
-import com.example.backend.Mapper.TeacherMapper;
+import com.example.backend.Mapper.StudentMapper;
 import com.example.backend.Mapper.UserMapper;
+import com.example.backend.dto.student.request.CreateStudentRequest;
 import com.example.backend.dto.user.request.CreateUserRequest;
-import com.example.backend.dto.teacher.request.TeacherCreationRequest;
-import com.example.backend.entity.Teacher;
+import com.example.backend.entity.Student;
 import com.example.backend.entity.User;
-import com.example.backend.respository.TeacherResponsitory;
+import com.example.backend.respository.StudentResponsitory;
 import com.example.backend.respository.UserResponsitory;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -15,13 +15,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class TeacherService implements IUserService{
-
+public class StudentService implements IUserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
     private final UserResponsitory userResponsitory;
-    private final TeacherResponsitory teacherResponsitory;
-    private final TeacherMapper teacherMapper;
+    private final StudentResponsitory studentResponsitory;
+    private final StudentMapper studentMapper;
     private final UserService userService;
 
     @Override
@@ -31,11 +30,12 @@ public class TeacherService implements IUserService{
             User user = userMapper.toCreate(createUserRequest);
             user.setPassword(passwordEncoder.encode(createUserRequest.getPassword()));
             userResponsitory.save(user);
-            if(createUserRequest instanceof TeacherCreationRequest teacherCreationRequest){
-                Teacher teacher = teacherMapper.toCreate(teacherCreationRequest);
-                teacher.setUser(user);
-                teacherResponsitory.save(teacher);
+            if(createUserRequest instanceof CreateStudentRequest createStudentRequest){
+                Student student = studentMapper.toCreate(createStudentRequest);
+                student.setUser(user);
+                studentResponsitory.save(student);
             }
         }
+
     }
 }

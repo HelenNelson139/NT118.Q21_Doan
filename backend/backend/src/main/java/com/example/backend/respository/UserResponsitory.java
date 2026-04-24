@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 @EnableJpaAuditing
 public interface UserResponsitory extends JpaRepository<User, Integer> {
     public User findByUsername(String username);
+    public User findByEmail(String email);
+    public User findByPhone(String phone);
+
 }
