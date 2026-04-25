@@ -5,6 +5,7 @@ import com.example.backend.dto.Authentication.request.AuthenticationRequest;
 import com.example.backend.dto.Authentication.request.IntrospectRequest;
 import com.example.backend.dto.Authentication.response.AuthenticationResponse;
 import com.example.backend.dto.Authentication.response.IntrospectResponse;
+import com.example.backend.entity.User;
 import com.example.backend.enums.Role;
 import com.example.backend.exception.AppException;
 import com.example.backend.exception.ErrorCode;
@@ -66,19 +67,19 @@ public class AuthenticationService {
             throw new AppException(ErrorCode.UN_AUTHENTICATED);
         }
 
-        var token = generateToken(authenticationRequest.getUsername(), user.getRole());
+        var token = generateToken(user);
         return AuthenticationResponse.builder()
                 .accessToken(token)
                 .authenticated(true)
                 .build();
     }
 
-    private String generateToken(String username, Role role){
+    private String generateToken(User user){
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
         JWTClaimsSet jwtClaimsSet = new JWTClaimsSet.Builder()
-                .subject(username)
-                .claim("role", role.name())
+                .subject(user.getUsername())
+                .claim("role", user.getRole().toString())
                 .issuer("NT118")
                 .issueTime(new Date())
                 .expirationTime(new Date(Instant.now().plus(1, ChronoUnit.HOURS).toEpochMilli()))
