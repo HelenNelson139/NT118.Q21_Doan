@@ -1,0 +1,18 @@
+package com.example.backend.dto.user.request;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+@Data
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UserUpdateRequest {
+    String username;
+    String password;
+    String email;
+    String phone;
+    String full_name;
+}
