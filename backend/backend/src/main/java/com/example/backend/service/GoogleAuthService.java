@@ -1,7 +1,7 @@
 package com.example.backend.service;
 import com.example.backend.entity.User;
 import com.example.backend.respository.UserResponsitory;
-import com.example.backend.util.JwtUtil;
+import com.example.backend.service.AuthenticationService;
 import com.google.api.client.googleapis.auth.oauth2.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +14,7 @@ import java.util.Map;
 public class GoogleAuthService {
     private final UserResponsitory userRepository;
     private final RestTemplate restTemplate = new RestTemplate();
+    private AuthenticationService authenticationService;
 
     public GoogleAuthService(UserResponsitory userRepository) {
         this.userRepository = userRepository;
@@ -41,6 +42,6 @@ public class GoogleAuthService {
             user = userRepository.save(user);
         }
 
-        return JwtUtil.generateToken(user.getEmail());
+        return authenticationService.generateToken(user);
     }
 }
